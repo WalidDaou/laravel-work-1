@@ -26,14 +26,14 @@ class home extends Model
     {
         $boxes = [
             [
-                "box" => "box1", "text" => "where the neon lights flicker like distant stars, there exists a hidden alleyway, cloaked in shadows and mystery. Here, whispers of secrets dance on the cool night"
+                "box" => "box1", "text" => "where the neon lights flicker like distant stars, there exists a hidden alleyway."
             ],
             [
-                "box" => "box2", "text" => "where the neon lights flicker like distant stars, there exists a hidden alleyway, cloaked in shadows and mystery. Here, whispers of secrets dance on the cool night"
+                "box" => "box2", "text" => "where the neon lights flicker like distant stars, there exists a hidden alleyway."
             ], [
-                "box" => "box3", "text" => "where the neon lights flicker like distant stars, there exists a hidden alleyway, cloaked in shadows and mystery. Here, whispers of secrets dance on the cool night"
+                "box" => "box3", "text" => "where the neon lights flicker like distant stars, there exists a hidden alleyway."
             ], [
-                "box" => "box4", "text" => "where the neon lights flicker like distant stars, there exists a hidden alleyway, cloaked in shadows and mystery. Here, whispers of secrets dance on the cool night"
+                "box" => "box4", "text" => "where the neon lights flicker like distant stars, there exists a hidden alleyway."
             ]
         ];
 

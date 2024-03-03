@@ -9,23 +9,30 @@
 
 @section("content")
 
-<p>FAQs</p>
+
+<div class="flex flex-col mt-10 ml-20 mr-20">
+
+    <p class="text-4xl mb-10">FAQs</p>
 
 
-  
-@foreach ($FAQs as $faqs)
-        <div>
+    <div class="flex flex-col gap-5">
 
-            <div class="">
-                {{ $faqs->title }}</div>
-                <div class="w-[150px]">
-                    <p class="text-sm">{{ $faqs->text }}</p>
-                </div>
+        @foreach ($FAQs as $faqs)
+        <div class="flex flex-col gap-4 border p-5 ">
+
+            <div>
+                {{ $faqs->title }}
             </div>
-            
-            @endforeach
-        
+            <div >
+                <p class="text-sm">{{ $faqs->text }}</p>
+            </div>
+        </div>
 
+        @endforeach
+
+    </div>
+
+</div>
 
 
 

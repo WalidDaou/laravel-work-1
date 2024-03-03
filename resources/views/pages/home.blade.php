@@ -4,26 +4,28 @@
 @section("head")
 <title>Home</title>
 @endsection
-@include(' partial\headers')
 @section("content")
 <div class="fex">
+<div class="flex w-screen">
+    @include(' partial\headers')
+</div>
 
-    <div class="ml-20 mt-5 mr-20 flex flex-col gap-10">
-        <h1 class="text-2xl">{{ $text->title }}</h1>
+    <div class="ml-20 mt-10 mr-20 flex flex-col gap-10 ">
+        <h1 class="text-3xl">{{ $text->title }}</h1>
         <p>{{ $text->text }}</p>
         <div>
-            <button class="border-black border-2">learn more</button>
+            <button class="border-black border-2 w-[150px] h-[40px]">learn more</button>
         </div>
         <div class="mt-5">
-            <h1 class="text-2xl">Explore our services</h1>
-            <div style="display: flex; flex-direction: row; gap: 10px">
+            <h1 class="text-3xl mb-5">Explore our services</h1>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px">
                 @foreach ($boxes as $box)
                 <div>
-                    <div class="border-black border-2 w-[150px] h-[150px] {{ $box->box === 'box1' ? 'bg-red-300' : '' }} {{ $box->box === 'box2' ? 'bg-blue-300' : '' }} {{ $box->box === 'box3' ? 'bg-yellow-300' : '' }} {{ $box->box === 'box4' ? 'bg-green-300' : '' }} ">
+                    <div class="flex  justify-center items-center text-2xl text-white  border-2 w-[380px] h-[220px] {{ $box->box === 'box1' ? 'bg-blue-700' : '' }} {{ $box->box === 'box2' ? 'bg-red-600' : '' }} {{ $box->box === 'box3' ? 'bg-lime-500' : '' }} {{ $box->box === 'box4' ? 'bg-amber-600' : '' }} ">
                         {{ $box->box }}
                     </div>
-                    <div class="w-[150px]">
-                        <p class="text-sm">{{ $box->text }}</p>
+                    <div class="w-[380px]">
+                        <p class="text-l">{{ $box->text }}</p>
                     </div>
                 </div>
                 @endforeach
