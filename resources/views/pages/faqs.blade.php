@@ -17,9 +17,9 @@
         <div>
 
             <div class="">
-                {{ $faqs['title'] }}</div>
+                {{ $faqs->title }}</div>
                 <div class="w-[150px]">
-                    <p class="text-sm">{{ $faqs['text'] }}</p>
+                    <p class="text-sm">{{ $faqs->text }}</p>
                 </div>
             </div>
             

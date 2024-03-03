@@ -16,9 +16,9 @@
 <div class="flex flex-row gap-20 ml-20">
     
     <div>  
-        <p>{{$contacts['address']}}</p>
-        <p>{{$contacts['number']}}</p>
-        <p>{{$contacts['info']}}</p>
+        <p>{{$contacts->address}}</p>
+        <p>{{$contacts->number}}</p>
+        <p>{{$contacts->info}}</p>
     </div>
 
 <div>

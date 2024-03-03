@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\home;
+use App\models\contact;
+use App\models\faqs;
 
 class StudentController extends Controller
 {
@@ -13,32 +15,25 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $contacts = home::getContacts();
-
+        $text = home::getTexts();
+        $boxes = home::getBoxes();
 
 
         return view('pages.home', compact('text', 'boxes'));
     }
-    
+
 
 
     /**
      * Store a newly created resource in storage.
      */
-    public function contact ()
+    public function contact()
     {
 
-        
-        $contacts = [
-            
-                "address" => "contact-detail" , 
-                "number"=>"+999999999999",
-                "info"=>"test@test.com"
-            
-            ];
 
-        return view ('pages.contact', compact ( 'contacts' ));
-        
+        $contacts = contact::getContacts();
+
+        return view('pages.contact', compact('contacts'));
     }
 
     /**
@@ -47,26 +42,9 @@ class StudentController extends Controller
     public function faqs()
     {
 
+        $FAQs = faqs::getFaqs();
 
-        $FAQs = [
-            [
-                "title" => "stuff syube uibwe uibfw iubeuf iuegfwbeu uifuu" , 
-                "text"=>"where the neon lights flicker like distant stars, there exists a hidden alleyway, cloaked in shadows and mystery. Here, whispers of secrets dance on the cool night"
-            ],
-            [
-                "title" => "stuff syube uibwe uibfw iubeuf iuegfwbeu uifuu" , 
-                "text"=>"where the neon lights flicker like distant stars, there exists a hidden alleyway, cloaked in shadows and mystery. Here, whispers of secrets dance on the cool night"
-            ],[
-                "title" => "stuff syube uibwe uibfw iubeuf iuegfwbeu uifuu" , 
-                "text"=>"where the neon lights flicker like distant stars, there exists a hidden alleyway, cloaked in shadows and mystery. Here, whispers of secrets dance on the cool night"
-            ],[
-                "title" => "stuff syube uibwe uibfw iubeuf iuegfwbeu uifuu" , 
-                "text"=>"where the neon lights flicker like distant stars, there exists a hidden alleyway, cloaked in shadows and mystery. Here, whispers of secrets dance on the cool night"
-            ]
-            ];
-
-        return view ('pages.faqs', compact ( 'FAQs' ));
-        
+        return view('pages.faqs', compact('FAQs'));
     }
 
     /**
