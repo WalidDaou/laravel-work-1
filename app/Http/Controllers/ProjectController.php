@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\home;
 use App\models\contact;
 use App\models\faqs;
+use App\Models\submit;
 
-class StudentController extends Controller
+class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $text = home::getTexts();
@@ -24,9 +23,7 @@ class StudentController extends Controller
 
 
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function contact()
     {
 
@@ -36,15 +33,20 @@ class StudentController extends Controller
         return view('pages.contact', compact('contacts'));
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function faqs()
     {
 
         $FAQs = faqs::getFaqs();
 
         return view('pages.faqs', compact('FAQs'));
+    }
+
+    public function submit()
+    
+    {
+        $message = submit::getmessage();
+        dd("Message :" , $message);
     }
 
     /**

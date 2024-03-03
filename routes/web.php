@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +14,9 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 
@@ -24,6 +24,7 @@ Route::get('/', function () {
 // return view ('pages.home');
 // });
 
-Route::get('/home', [StudentController::class, 'index']);
-Route::get('/contact-us', [StudentController::class, 'contact']);
-Route::get('/faqs', [StudentController::class, 'faqs']);
+Route::get('/', [ProjectController::class, 'index']);
+Route::get('/contact-us', [ProjectController::class, 'contact']);
+Route::get('/faqs', [ProjectController::class, 'faqs']);
+Route::post('/contact-us', [ProjectController::class, 'submit'])->name('contact.submit');
