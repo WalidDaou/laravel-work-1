@@ -24,7 +24,10 @@ use App\Http\Controllers\ProjectController;
 // return view ('pages.home');
 // });
 
-Route::get('/', [ProjectController::class, 'index']);
-Route::get('/contact-us', [ProjectController::class, 'contact']);
+Route::get('/', [ProjectController::class, 'paragraph']);
+// Route::get('/contact', [ProjectController::class, 'contact']);
+Route::get('/contact', [ProjectController::class, 'render']);
 Route::get('/faqs', [ProjectController::class, 'faqs']);
 Route::post('/contact-us', [ProjectController::class, 'submit'])->name('contact.submit');
+
+

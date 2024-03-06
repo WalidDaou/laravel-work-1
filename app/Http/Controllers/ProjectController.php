@@ -4,64 +4,79 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\home;
-use App\models\contact;
-use App\models\faqs;
-use App\Models\submit;
+use App\Models\Paragraph;
+use App\Models\ContactDetail;
+use App\Models\Faq;
+use App\Models\Service;
+use App\Models\Setting;
 
 class ProjectController extends Controller
 {
 
-    public function index()
+    public function paragraph()
     {
-        $text = home::getTexts();
-        $boxes = home::getBoxes();
+        $paragraph = Paragraph::getParagraph("home");
+
+        $services = Service::getServices();
 
 
-        return view('pages.home', compact('text', 'boxes'));
+        return view('pages.home', compact('paragraph', 'services'));
     }
 
 
 
-    
+
     public function contact()
     {
 
 
-        $contacts = contact::getContacts();
+        $contact = ContactDetail::getContact();
 
-        return view('pages.contact', compact('contacts'));
+        return view('pages.contact', compact('contact'));
     }
+
+
 
 
     public function faqs()
     {
 
-        $FAQs = faqs::getFaqs();
+        $faqs = Faq::getFaqs();
 
-        return view('pages.faqs', compact('FAQs'));
+        return view('pages.faqs', compact('faqs'));
     }
 
-    public function submit()
-    
+    public function submit(Request $request)
+
     {
-        $message = submit::getmessage();
-        dd("Message :" , $message);
+        dd("Submitted");
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+
+    public function render()
     {
-        //
+
+        // $contact_detail = ContactDetail::getContact();
+
+
+        // $phone = Setting::getSetting("france");
+        // $email = Setting::getSetting("lebanon");
+        $email = 
+
+        $contact_detail = Setting::getSettings("contact");
+
+        $contact = (object) [
+            'phone' => $contact_detail["lebanon"] ?? "",
+            'email' => $contact_detail["france"] ?? ""
+        ];
+        dump($contact_detail["lebanon"]);
+        dump($contact);
+        dd($contact_detail);
+        
+     // this -> ["PHNE"] -> is a key from the [$contact] array that return a value -> $contact["PHNE"] -> dd each one to anderstand
+
+
+        return view('pages.contact', compact('contact'));
     }
 }
